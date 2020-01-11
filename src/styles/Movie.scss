@@ -1,0 +1,19 @@
+#movies .card-body {
+  padding: 5px 10px;
+  .card-title {
+    margin: 0;
+  }
+}
+
+#movie {
+  .home-page-link {
+    color: #fff;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .company-image {
+    width: 100px;
+    margin: 10px 30px;
+  }
+}

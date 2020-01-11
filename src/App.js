@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Container } from 'reactstrap';
+import NavigationBar from './components/layout/NavigationBar';
+import Home from './components/pages/Home';
+import Movie from './components/movies/Movie';
+import NotFound from './components/pages/NotFound';
+import MovieState from './context/movie/MovieState';
+import './App.scss';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MovieState>
+      <Router>
+        <div className='App'>
+          <NavigationBar />
+          <Container className='mt-4 mb-5'>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/movies/:id' component={Movie} />
+              <Route component={NotFound} />
+            </Switch>
+          </Container>
+        </div>
+      </Router>
+    </MovieState>
   );
-}
+};
 
 export default App;
