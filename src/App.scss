@@ -23,7 +23,7 @@ html,
 #App {
   min-height: 100vh;
   position: relative;
-  .container {
+  .page-wrapper.container {
     padding-bottom: 100px;
   }
   #attribution {

@@ -15,7 +15,7 @@ const App = () => {
       <Router>
         <div id='App'>
           <NavigationBar />
-          <Container className='mt-4'>
+          <Container className='mt-4 page-wrapper'>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/movies/:id' component={Movie} />
