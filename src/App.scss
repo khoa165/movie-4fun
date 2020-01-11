@@ -18,7 +18,18 @@ html,
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
+}
+
+#App {
+  min-height: 100vh;
   position: relative;
+  .page-wrapper.container {
+    padding-bottom: 100px;
+  }
+  #attribution {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 @keyframes fadein {

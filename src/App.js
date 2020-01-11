@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import NavigationBar from './components/layout/NavigationBar';
+import Attribution from './components/layout/Attribution';
 import Home from './components/pages/Home';
 import Movie from './components/movies/Movie';
 import NotFound from './components/pages/NotFound';
@@ -12,15 +13,16 @@ const App = () => {
   return (
     <MovieState>
       <Router>
-        <div className='App'>
+        <div id='App'>
           <NavigationBar />
-          <Container className='mt-4 mb-5'>
+          <Container className='mt-4 page-wrapper'>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/movies/:id' component={Movie} />
               <Route component={NotFound} />
             </Switch>
           </Container>
+          <Attribution />
         </div>
       </Router>
     </MovieState>
