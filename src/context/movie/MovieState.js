@@ -23,6 +23,7 @@ const MovieState = props => {
 
   // Search movies.
   const searchMovies = async text => {
+    console.log(process.env.TMDB_API_KEY ? 'yes' : 'no');
     setLoading();
     const res = await axios.get(
       `https://api.themoviedb.org/3/search/movie?api_key=${tmdbApiKey}&query=${text}`
