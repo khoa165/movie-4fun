@@ -1,3 +1,5 @@
-#navbar .navbar-dark .navbar-nav a.nav-link {
-  color: white;
+#navbar {
+  &.navbar-dark .navbar-nav a.nav-link {
+    color: white;
+  }
 }
