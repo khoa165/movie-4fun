@@ -4,7 +4,13 @@ import MovieContext from './movieContext';
 import MovieReducer from './movieReducer';
 import { SEARCH_MOVIES, GET_MOVIE, CLEAR_MOVIES, SET_LOADING } from '../types';
 
-const apiKey = process.env.REACT_APP_TMDB_API_KEY;
+let tmdbApiKey;
+
+if (process.env.NODE_ENV !== 'production') {
+  tmdbApiKey = process.env.REACT_APP_TMDB_API_KEY;
+} else {
+  tmdbApiKey = process.env.TMDB_API_KEY;
+}
 
 const MovieState = props => {
   const initialState = {
@@ -19,7 +25,7 @@ const MovieState = props => {
   const searchMovies = async text => {
     setLoading();
     const res = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${text}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${tmdbApiKey}&query=${text}`
     );
     dispatch({
       type: SEARCH_MOVIES,
@@ -31,7 +37,7 @@ const MovieState = props => {
   const getMovie = async id => {
     setLoading();
     const res = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${tmdbApiKey}`
     );
     dispatch({
       type: GET_MOVIE,
